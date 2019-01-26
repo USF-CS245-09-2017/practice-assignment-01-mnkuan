@@ -1,6 +1,7 @@
 
 public class Fibonacci {
   public int fibonacci(int n, String type) {
+    
     if (type.equals("iterative")) {
       return iterativeFib(n);
     } else if (type.equals("recursive")) {
@@ -14,8 +15,10 @@ public class Fibonacci {
   private int iterativeFib(int n) {
     int backVal = 0, frontVal = 1;
     
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n - 1; i++) {
+      int temp = frontVal + backVal;
       backVal = frontVal;
+      frontVal = temp;
     }
     
     return frontVal + backVal;
@@ -23,7 +26,7 @@ public class Fibonacci {
   
 //Uses recursive style to return the Fibonacci number
   private int recursiveFib(int n) {
-    if (n <= 1) {
+    if (n <= 2) {
       return 1;
     }
     
